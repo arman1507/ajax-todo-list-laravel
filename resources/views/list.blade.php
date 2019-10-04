@@ -21,7 +21,7 @@
                             <ul class="list-group">
                                 @foreach($items as $item)
                                     <li class="list-group-item our-item" data-toggle="modal" data-target="#myModal">{{ $item->item }}
-                                        <input type="hidden" id="itemId" value="{{ $item->id }}"><button>  <i class="fas fa-edit"></i></button>
+                                        <input type="hidden" id="itemId" value="{{ $item->id }}"><button style="float: right;">  <i class="fas fa-edit"></i></button>
                                     </li>
                                 @endforeach
                             </ul>     
