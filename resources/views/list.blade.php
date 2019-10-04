@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"/>
 </head>
 <body>
     <br>
@@ -20,7 +21,7 @@
                             <ul class="list-group">
                                 @foreach($items as $item)
                                     <li class="list-group-item our-item" data-toggle="modal" data-target="#myModal">{{ $item->item }}
-                                        <input type="checkbox" id="itemId" value="{{ $item->id }}">
+                                        <input type="hidden" id="itemId" value="{{ $item->id }}"><button>  <i class="fas fa-edit"></i></button>
                                     </li>
                                 @endforeach
                             </ul>     
