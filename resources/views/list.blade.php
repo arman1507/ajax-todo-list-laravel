@@ -20,7 +20,7 @@
                             <ul class="list-group">
                                 @foreach($items as $item)
                                     <li class="list-group-item our-item" data-toggle="modal" data-target="#myModal">{{ $item->item }}
-                                        <input type="hidden" id="itemId" value="{{ $item->id }}">
+                                        <input type="checkbox" id="itemId" value="{{ $item->id }}">
                                     </li>
                                 @endforeach
                             </ul>     
@@ -29,9 +29,7 @@
                 </div>
 
                 
-                <div class="col-lg-2">
-                    <input type="text" name="searchItem" id="searchItem" placeholder="Search">
-                </div>
+                
 
                
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
@@ -112,11 +110,7 @@
                 });
             });
 
-            $( function() {
-                $( "#searchItem" ).autocomplete({
-                  source: 'http://localhost/ajaxToDo/public/search'
-                });
-            } );
+           
         });
     </script>
 </body>

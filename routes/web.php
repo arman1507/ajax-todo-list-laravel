@@ -19,4 +19,3 @@ Route::post('list', 'ListController@create');
 Route::post('update', 'ListController@update');
 Route::post('delete', 'ListController@delete');
 
-Route::get('search','ListController@search');

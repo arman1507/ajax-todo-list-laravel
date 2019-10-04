@@ -33,17 +33,5 @@ class ListController extends Controller
         return "item deleted";
     }
 
-    public function search(Request $request){
-        $term = $request->term;
-        $items = Item::where("item" , "LIKE" , "%". $term . "%")->get();
-        if(count($items)  == 0){
-            $searchResult[] = "No Items found";
-        }else{
-            foreach($items as $key => $value){
-                $searchResult[] = $value->item;
-            }
-        }
-        return $searchResult;
-       
-    }
+   
 }
