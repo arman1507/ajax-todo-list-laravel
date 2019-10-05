@@ -18,4 +18,4 @@ Route::get('list','ListController@index');
 Route::post('list', 'ListController@create');
 Route::post('update', 'ListController@update');
 Route::post('delete', 'ListController@delete');
-
+Route::post('deleteit', 'ListController@deleteit');

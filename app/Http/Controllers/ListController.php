@@ -32,6 +32,12 @@ class ListController extends Controller
         $item->delete();
         return "item deleted";
     }
+    public function deleteit(Request $request){
+        $item_id_array = $request->input('id');
+        $item = Item::whereIn('id', $item_id_array);
+        if($item->delete())
+        {return "item deleted";}
+    }
 
    
 }

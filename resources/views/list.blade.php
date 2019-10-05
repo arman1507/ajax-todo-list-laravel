@@ -20,10 +20,11 @@
                         <div class="panel-body" id="allItems">
                             <ul class="list-group">
                                 @foreach($items as $item)
-                                    <li class="list-group-item our-item" data-toggle="modal" data-target="#myModal">{{ $item->item }}
-                                        <input type="hidden" id="itemId" value="{{ $item->id }}"><button style="float: right;">  <i class="fas fa-edit"></i></button>
+                                    <li class="list-group-item our-item" >
+                                        <input type="checkbox" class="checkitem" id="itemId" value="{{ $item->id }}">{{ $item->item }}<button data-toggle="modal" data-target="#myModal" style="float: right;">  <i class="fas fa-edit"></i></button>
                                     </li>
                                 @endforeach
+                                <button class="btn btn-warning" id="delete">Deleted Selected</button>
                             </ul>     
                         </div>
                     </div>
@@ -71,6 +72,7 @@
                     $("#deleteItem").show(400);
                     $("#addButton").hide(400);
                     $("#id").val(id);
+                    $("#delete").show(400);
                 });
             
 
@@ -80,6 +82,7 @@
                     $("#saveItem").hide(400);
                     $("#deleteItem").hide(400);
                     $("#addButton").show(400);
+                    $("#delete").show(400);
             });
 
             $("#addButton").click(function(event){
@@ -111,6 +114,41 @@
                 });
             });
 
+            
+            // $("#delete").click(function(event){
+            //     var id = $(".checkitem:checked").map(function(){
+            //         return $(this).val()}).get().join(' ');
+            //     $.post('deleteit', {'id' : id, '_token':$('input[name=_token]').val()} , function(data){
+            //         $("#allItems").load(location.href + " #allItems");
+            //         console.log(data);
+            //     });
+            // });
+
+            // $("#delete").click(function(event){
+            //     var id = $("#id").val();
+                // $.post('deleteit', {'id' : id, '_token':$('input[name=_token]').val()} , function(data){
+                //     $("#allItems").load(location.href + " #allItems");
+                //     console.log(data);
+                // });
+            // });
+            $(document).on("click" , "#delete" , function(event){
+                var id = [];
+                if(confirm("yakin hapus data ?")){
+                    $(".checkitem:checked").each(function(){
+                        id.push($(this).val());
+                    });
+                    if(id.length>0)
+                    {
+                        $.post('deleteit', {'id' : id, '_token':$('input[name=_token]').val()} , function(data){
+                    $("#allItems").load(location.href + " #allItems");
+                    console.log(data);
+                });
+                    }
+                    else{
+                        alert("ceklis dulu");
+                    }
+                }
+            });
            
         });
     </script>
